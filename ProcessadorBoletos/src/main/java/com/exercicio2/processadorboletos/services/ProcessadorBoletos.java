@@ -1,4 +1,8 @@
-package com.exercicio2.processadorboletos.models;
+package com.exercicio2.processadorboletos.services;
+
+import com.exercicio2.processadorboletos.models.Boleto;
+import com.exercicio2.processadorboletos.models.Fatura;
+import com.exercicio2.processadorboletos.models.Pagamento;
 
 public class ProcessadorBoletos {
 

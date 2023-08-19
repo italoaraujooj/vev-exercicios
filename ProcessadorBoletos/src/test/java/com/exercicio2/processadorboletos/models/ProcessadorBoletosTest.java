@@ -1,8 +1,6 @@
 package com.exercicio2.processadorboletos.models;
 
-import com.exercicio2.processadorboletos.models.Boleto;
-import com.exercicio2.processadorboletos.models.Fatura;
-import com.exercicio2.processadorboletos.models.ProcessadorBoletos;
+import com.exercicio2.processadorboletos.services.ProcessadorBoletos;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
