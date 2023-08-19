@@ -1,0 +1,4 @@
+com\exercicio1\processadorboletos\models\ProcessadorBoletos.class
+com\exercicio1\processadorboletos\models\Fatura.class
+com\exercicio1\processadorboletos\models\Pagamento.class
+com\exercicio1\processadorboletos\models\Boleto.class
