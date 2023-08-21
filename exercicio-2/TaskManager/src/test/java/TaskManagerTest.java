@@ -34,8 +34,8 @@ public class TaskManagerTest {
         taskManager.updateTask(1, updatedInfo);
 
         Task task = taskManager.getTaskById(1);
-        assertEquals("Tarefa Atualizada", task.getTitle());
-        assertEquals("Nova Descrição", task.getDescription());
+        assertEquals("Updated Task", task.getTitle());
+        assertEquals("newDescription", task.getDescription());
         assertEquals(Priority.HIGH, task.getPriority());
     }
 
@@ -91,10 +91,10 @@ public class TaskManagerTest {
         TaskInfo taskInfo = new TaskInfo("Title Delete", "Description", "2023-08-20", Priority.LOW);
 
         taskManager.createTask(taskInfo);
-        taskManager.deleteTask("Title Delete");
+        taskManager.deleteTask(1);
 
         List<Task> tasks = taskManager.getAllTasks();
-        
+
         assertEquals(0, tasks.size());
     }
 
