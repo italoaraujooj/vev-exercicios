@@ -1,31 +1,20 @@
 package org.com.models;
 
-public class TaskInfo {
-    private String title;
-    private String description;
-    private String dueDate;
-    private Priority priority;
+public record TaskInfo(String title, String description, String dueDate, Priority priority) {
+    public TaskInfo {
 
-    public TaskInfo(String title, String description, String dueDate, Priority priority) {
-        this.title = title;
-        this.description = description;
-        this.dueDate = dueDate;
-        this.priority = priority;
-    }
+        if (title == null || title.isEmpty()) {
+            throw new IllegalArgumentException("Title cannot be empty or null");
+        }
+        if (description == null) {
+            description = "";
+        }
+        if (dueDate == null || dueDate.isEmpty()) {
+            throw new IllegalArgumentException("Due date cannot be empty or null");
+        }
+        if (priority == null) {
+            throw new IllegalArgumentException("Priority cannot be null");
+        }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getDueDate() {
-        return dueDate;
-    }
-
-    public Priority getPriority() {
-        return priority;
     }
 }

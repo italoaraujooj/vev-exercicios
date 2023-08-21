@@ -4,12 +4,10 @@ import org.com.models.Task;
 import org.com.models.TaskComparator;
 import org.com.models.TaskInfo;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class TaskManager {
-    private List<Task> tasks;
+    private final List<Task> tasks;
     private int nextId;
 
     public TaskManager(){
@@ -18,7 +16,7 @@ public class TaskManager {
     }
 
     public boolean createTask(TaskInfo taskInfo) {
-        Task task = new Task(nextId, taskInfo.getTitle(), taskInfo.getDescription(), taskInfo.getDueDate(), taskInfo.getPriority());
+        Task task = new Task(nextId, taskInfo.title(), taskInfo.description(), taskInfo.dueDate(), taskInfo.priority());
         tasks.add(task);
         nextId++;
         return true;
@@ -33,10 +31,10 @@ public class TaskManager {
     public boolean updateTask(int taskId, TaskInfo updatedInfo) {
         for ( Task task: this.tasks) {
             if (task.getId() == taskId) {
-                task.setTitle(updatedInfo.getTitle());
-                task.setDescription(updatedInfo.getDescription());
-                task.setDueDate(updatedInfo.getDueDate());
-                task.setPriority(updatedInfo.getPriority());
+                task.setTitle(updatedInfo.title());
+                task.setDescription(updatedInfo.description());
+                task.setDueDate(updatedInfo.dueDate());
+                task.setPriority(updatedInfo.priority());
                 return true;
             }
         }
@@ -52,14 +50,13 @@ public class TaskManager {
         return null;
     }
 
-    public boolean deleteTask(int i) {
+    public void deleteTask(int i) {
         for (Task task: this.tasks){
             if (task.getId() == i) {
                 this.tasks.remove(task);
-                return true;
+                return;
             }
         }
-        return false;
     }
 
 

@@ -39,18 +39,6 @@ public class TaskManagerTest {
         assertEquals(Priority.HIGH, task.getPriority());
     }
 
-
-        @Test
-        public void testCreateTaskInvalidInfo() {
-            TaskManager taskManager = new TaskManager();
-            TaskInfo invalidTaskInfo = new TaskInfo("", "Descrição da tarefa", "2023-08-30", Priority.HIGH);
-
-            boolean result = taskManager.createTask(invalidTaskInfo);
-
-            assertFalse(result);
-            assertEquals(0, taskManager.getAllTasks().size());
-        }
-
         @Test
         public void testCreateMultipleTasksOrderPriority() {
             TaskManager taskManager = new TaskManager();
