@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Fatura.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Archetype - ProcessadorBoletos</a> &gt; <a href="index.source.html" class="el_package">com.exercicio4.processadorboletos.models</a> &gt; <span class="el_source">Fatura.java</span></div><h1>Fatura.java</h1><pre class="source lang-java linenums">package com.exercicio4.processadorboletos.models;
+
+import java.util.Date;
+
+public class Fatura {
+    private String nomeCliente;
+    private double valorTotal;
+    private Date dataLimite;
+    private double valorPago;
+    private boolean paga;
+
+    public void setPaga(boolean paga) {
+<span class="nc" id="L13">        this.paga = paga;</span>
+<span class="nc" id="L14">    }</span>
+
+    public double getCreditoProxFatura() {
+<span class="nc" id="L17">        return creditoProxFatura;</span>
+    }
+
+    public void setCreditoProxFatura(double creditoProxFatura) {
+<span class="fc" id="L21">        this.creditoProxFatura = creditoProxFatura;</span>
+<span class="fc" id="L22">    }</span>
+
+    private double creditoProxFatura;
+
+<span class="fc" id="L26">    public Fatura(String nomeCliente, double valorTotal, Date dataLimite) {</span>
+<span class="fc" id="L27">        this.nomeCliente = nomeCliente;</span>
+<span class="fc" id="L28">        this.valorTotal = valorTotal;</span>
+<span class="fc" id="L29">        this.dataLimite = dataLimite;</span>
+<span class="fc" id="L30">        this.valorPago = 0;</span>
+<span class="fc" id="L31">    }</span>
+
+    public void setPaga(){
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        if (this.valorPago &gt;= this.valorTotal){</span>
+<span class="fc" id="L35">            this.paga = true;</span>
+<span class="fc" id="L36">        } else this.paga = false;</span>
+<span class="fc" id="L37">    }</span>
+
+    public boolean isPaga(){
+<span class="fc" id="L40">        return this.paga;</span>
+    }
+
+    public void adicionarPagamento(Pagamento pagamento) {
+<span class="fc" id="L44">        this.valorPago += pagamento.getValor();</span>
+<span class="fc" id="L45">        setPaga();</span>
+<span class="fc" id="L46">    }</span>
+
+    public String getNomeCliente() {
+<span class="nc" id="L49">        return nomeCliente;</span>
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+<span class="nc" id="L53">        this.nomeCliente = nomeCliente;</span>
+<span class="nc" id="L54">    }</span>
+
+    public double getValorTotal() {
+<span class="fc" id="L57">        return valorTotal;</span>
+    }
+
+    public void setValorTotal(double valorTotal) {
+<span class="nc" id="L61">        this.valorTotal = valorTotal;</span>
+<span class="nc" id="L62">    }</span>
+
+    public Date getDataLimite() {
+<span class="fc" id="L65">        return dataLimite;</span>
+    }
+
+    public void setDataLimite(Date dataLimite) {
+<span class="nc" id="L69">        this.dataLimite = dataLimite;</span>
+<span class="nc" id="L70">    }</span>
+
+    public double getValorPago() {
+<span class="fc" id="L73">        return valorPago;</span>
+    }
+
+    public void setValorPago(double valorPago) {
+<span class="nc" id="L77">        this.valorPago = valorPago;</span>
+<span class="nc" id="L78">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

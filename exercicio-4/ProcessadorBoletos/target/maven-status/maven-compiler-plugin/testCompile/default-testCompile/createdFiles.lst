@@ -1,0 +1,6 @@
+com\exercicio4\processadorboletos\functionalTests\FunctionalTestsTD.class
+com\exercicio4\processadorboletos\functionalTests\TestSuite.class
+com\exercicio4\processadorboletos\junit5Tests\FunctionalTestsAVLJ5.class
+com\exercicio4\processadorboletos\models\ProcessadorBoletosTest.class
+com\exercicio4\processadorboletos\functionalTests\FunctionalTestsAVL.class
+com\exercicio4\processadorboletos\junit5Tests\FunctionalTestsTDJ5.class
