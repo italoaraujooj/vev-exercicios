@@ -6,7 +6,7 @@ describe('shipments', () => {
     cy.get('.primary').click();
   });
   // Remove .only and implement others test cases!
-  it.only('ship a ready shipment', () => {
+  it('ship a ready shipment', () => {
     // Click in shipments in side menu
     cy.clickInFirst('a[href="/admin/shipments/"]');
     // Type in value input to search for specify shipment
@@ -19,6 +19,7 @@ describe('shipments', () => {
     // Assert that shipment has been shipped
     cy.get('body').should('contain', 'Shipment has been successfully shipped.');
   });
+
   it('shipping method is UPS', () => {
     // Click in shipments in side menu
     cy.clickInFirst('a[href="/admin/shipments/"]');
@@ -33,6 +34,7 @@ describe('shipments', () => {
     cy.get('*[class^="ui sortable stackable very basic celled table"]').should('contain', '28-11-2022 07:40:08');
 
   });
+
   it('shipping method is DHL Express', () => {
     // Click in shipments in side menu
     cy.clickInFirst('a[href="/admin/shipments/"]');
@@ -77,6 +79,19 @@ describe('shipments', () => {
     cy.get('.ui > .sylius-filters > .sylius-filters__field > .field > #criteria_channel').should('All');
     cy.get('.ui > .sylius-filters > .sylius-filters__field > .field > #criteria_method').should('All');
   });
+
+  it('on page one', () => {
+    cy.clickInFirst('a[href="/admin/shipments/"]');
+    cy.get('.ui > .sylius-grid-nav > .sylius-grid-nav__pagination > .pagination menu > .disabled item > #text').should('Previous');
+    cy.get('.ui > .sylius-grid-nav > .sylius-grid-nav__pagination > .pagination menu > .active item > #text').should('1');
+  });
+
+  it('on last page', () => {
+    cy.clickInFirst('a[href="/admin/shipments/"]');
+    cy.get('.ui > .sylius-grid-nav > .sylius-grid-nav__pagination > .pagination menu > .disabled item > #text').should('Next');
+  });
+
+
 
   // Implement the remaining test cases in a similar manner
 });
