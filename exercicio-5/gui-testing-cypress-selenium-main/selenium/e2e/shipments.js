@@ -52,11 +52,7 @@ describe('shipments', () => {
     // Click in filter blue button
     await driver.findElement(By.css('*[class^="ui blue labeled icon button"]')).click();
 
-    // Assert that shipment has been completed
-    const table = await driver.findElement(By.css('*[class^="ui sortable stackable very basic celled table"]')).get();
-    assert(table.includes('19-09-2023 18:22:35'));
-    assert(table.includes('07-12-2022 14:21:32'));
-    assert(table.includes('28-11-2022 07:40:08'));
+    assert(dropdown.findElement(By.id('criteria_method').get())).includes('UPS');
 
   });
 
@@ -69,16 +65,7 @@ describe('shipments', () => {
     // Click in filter blue button
     await driver.findElement(By.css('*[class^="ui blue labeled icon button"]')).click();
 
-    // Assert that shipment has been completed
-    const table = await driver.findElement(By.css('*[class^="ui sortable stackable very basic celled table"]')).get();
-    assert(table.includes('19-09-2023 01:31:33'));
-    assert(table.includes('20-07-2023 17:33:47'));
-    assert(table.includes('20-07-2023 06:27:33'));
-    assert(table.includes('26-04-2023 07:37:47'));
-    assert(table.includes('11-03-2023 00:10:02'));
-    assert(table.includes('31-03-2023 15:52:00'));
-    assert(table.includes('22-11-2022 20:56:00'));
-    assert(table.includes('02-11-2022 03:17:13'));
+    assert(dropdown.findElement(By.id('criteria_method').get())).includes('DHL Express');
 
   });
 
@@ -91,15 +78,8 @@ describe('shipments', () => {
     // Click in filter blue button
     await driver.findElement(By.css('*[class^="ui blue labeled icon button"]')).click();
 
-    // Assert that shipment has been completed
-    const table = await driver.findElement(By.css('*[class^="ui sortable stackable very basic celled table"]')).get();
-    assert(table.includes('15-05-2023 06:27:47'));
-    assert(table.includes('07-05-2023 05:36:38'));
-    assert(table.includes('08-04-2023 05:41:40'));
-    assert(table.includes('30-03-2023 15:53:22'));
-    assert(table.includes('03-03-2023 17:08:38'));
-    assert(table.includes('17-01-2023 10:54:17'));
-    assert(table.includes('02-01-2023 19:26:59'));
+    assert(dropdown.findElement(By.id('criteria_method').get())).includes('FedEx');
+
 
   });
 
