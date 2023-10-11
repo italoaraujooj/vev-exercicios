@@ -28,7 +28,7 @@ describe('shipments', () => {
     // Click in filter blue button
     cy.get('*[class^="ui blue labeled icon button"]').click();
     // Assert that the objects shipped by the UPS method are there:
-    cy.get('.ui > .sylius-filters > .sylius-filters__field > .field > #criteria_method').should('UPS');
+    cy.get('.ui > .sylius-filters > .sylius-filters__field > .field > #criteria_method').should('have.value', 'UPS');
 
   });
 
@@ -40,7 +40,7 @@ describe('shipments', () => {
     // Click in filter blue button
     cy.get('*[class^="ui blue labeled icon button"]').click();
     // Assert that the objects shipped by the DHL method are there:
-    cy.get('.ui > .sylius-filters > .sylius-filters__field > .field > #criteria_method').should('DHL Express');
+    cy.get('.ui > .sylius-filters > .sylius-filters__field > .field > #criteria_method').should('have.value', 'DHL Express');
   });
 
   it('shipping method is FedEx', () => {
@@ -51,26 +51,26 @@ describe('shipments', () => {
     // Click in filter blue button
     cy.get('*[class^="ui blue labeled icon button"]').click();
     // Assert that the objects shipped by the FedEx method are there:
-    cy.get('.ui > .sylius-filters > .sylius-filters__field > .field > #criteria_method').should('FedEx');
+    cy.get('.ui > .sylius-filters > .sylius-filters__field > .field > #criteria_method').should('have.value', 'FedEx');
   });
 
   it('clear filters', () => {
     cy.clickInFirst('a[href="/admin/shipments/"]');
     cy.get('*[class^="ui labeled icon button"]').click();
-    cy.get('.ui > .sylius-filters > .sylius-filters__field > .field > #criteria_state').should('All');
-    cy.get('.ui > .sylius-filters > .sylius-filters__field > .field > #criteria_channel').should('All');
-    cy.get('.ui > .sylius-filters > .sylius-filters__field > .field > #criteria_method').should('All');
+    cy.get('.ui > .sylius-filters > .sylius-filters__field > .field > #criteria_state').should('have.value', 'All');
+    cy.get('.ui > .sylius-filters > .sylius-filters__field > .field > #criteria_channel').should('have.value', 'All');
+    cy.get('.ui > .sylius-filters > .sylius-filters__field > .field > #criteria_method').should('have.value', 'All');
   });
 
   it('on page one', () => {
     cy.clickInFirst('a[href="/admin/shipments/"]');
-    cy.get('.ui > .sylius-grid-nav > .sylius-grid-nav__pagination > .pagination menu > .disabled item > #text').should('Previous');
-    cy.get('.ui > .sylius-grid-nav > .sylius-grid-nav__pagination > .pagination menu > .active item > #text').should('1');
+    cy.get('.ui > .sylius-grid-nav > .sylius-grid-nav__pagination > .pagination menu > .disabled item > #text').should('contain', 'Previous');
+    cy.get('.ui > .sylius-grid-nav > .sylius-grid-nav__pagination > .pagination menu > .active item > #text').should('contain', '1');
   });
 
   it('on last page', () => {
     cy.clickInFirst('a[href="/admin/shipments/"]');
-    cy.get('.ui > .sylius-grid-nav > .sylius-grid-nav__pagination > .pagination menu > .disabled item > #text').should('Next');
+    cy.get('.ui > .sylius-grid-nav > .sylius-grid-nav__pagination > .pagination menu > .disabled item > #text').should('contain', 'Next');
   });
 
 
